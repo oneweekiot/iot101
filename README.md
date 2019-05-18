@@ -1,4 +1,4 @@
-![One Week Iot Logo](Images/logo.jpg){:height="50%" width="50%"}
+![One Week Iot Logo](Images/logo.jpg)
 
 # One Week IoT
 This is the official repository for the One Week IoT a start-up created to help teach IoT to as many people as we can.
