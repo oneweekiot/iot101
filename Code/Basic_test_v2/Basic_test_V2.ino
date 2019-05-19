@@ -1,6 +1,5 @@
 /*
-  This sample code connects to 2 feeds.
-
+  This code validates that everything is working fine.
 */  
   #include <ESP8266WiFi.h>
   #include "Adafruit_MQTT.h"
