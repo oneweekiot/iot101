@@ -87,8 +87,11 @@ void setup()
 
   dht.begin();
 
-  pixels.begin();
-  pixels.show();
+  pixels.begin();                   //initialize the neoPixels
+  pixels.setPixelColor(0, 0, 0, 0); //set the 1st neoPixel color to nothing
+  pixels.setPixelColor(1, 0, 0, 0); //set the 2nd neoPixel color to nothing
+  pixels.setPixelColor(2, 0, 0, 0); //set the 3rd neoPixel color to nothing
+  pixels.show();                    //display the colors set in the previous lines
 }
 
 void loop()
