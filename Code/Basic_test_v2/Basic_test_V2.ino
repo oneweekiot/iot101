@@ -20,6 +20,8 @@ void setup()
   pinMode(5, INPUT);  //set pin 5 as an INPUT
   pinMode(16, INPUT); //same for pin 16
 
+  Serial.begin(9600); //initialize Serial conversation at 9600 bauds per second
+
   pixels.begin();                   //initialize the neoPixels
   pixels.setPixelColor(0, 0, 0, 0); //set the 1st neoPixel color to nothing
   pixels.setPixelColor(1, 0, 0, 0); //set the 2nd neoPixel color to nothing
@@ -32,6 +34,7 @@ void loop()
   if (digitalRead(5) == HIGH) //check state for Pin 5, where we have the first button connected
   //code that runs if the statement above is true (a.k.a. the button is pressed)
   {
+    Serial.pintln("Button B pressed");
     pixels.setPixelColor(0, 0, 75, 0);
     pixels.setPixelColor(1, 0, 0, 75);
     pixels.setPixelColor(2, 75, 0, 0);
@@ -54,6 +57,7 @@ void loop()
 
   if (digitalRead(16) == HIGH)
   {
+    Serial.pintln("Button A pressed");
     pixels.setPixelColor(0, 75, 0, 0);
     pixels.setPixelColor(1, 0, 75, 0);
     pixels.setPixelColor(2, 0, 0, 75);
