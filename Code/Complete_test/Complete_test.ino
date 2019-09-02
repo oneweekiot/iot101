@@ -126,7 +126,8 @@ void loop()
       Serial.println("");
       Serial.print("New NeoPixel value: ");
       Serial.print((char *)neopixel.lastread);
-      //convet Hex to RGB
+      //convet Hex to RGB using a RIGHT SHIFT operation
+      //more details at: https://processing.org/reference/rightshift.html
       String hexstring = ((char *)neopixel.lastread);
       long number = (long)strtol(&hexstring[1], NULL, 16);
       int r = number >> 16;
