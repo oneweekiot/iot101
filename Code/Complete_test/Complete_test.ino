@@ -108,7 +108,9 @@ void loop()
       Serial.println("");
       Serial.print("New Slider value: ");
       Serial.println((char *)slider.lastread);
-      uint16_t sliderval = atoi((char *)slider.lastread); // convert to a number
+      uint16_t sliderval = atoi((char *)slider.lastread); 
+      // convert string read to a number
+      // http://www.cplusplus.com/reference/cstdlib/atoi/
       if (sliderval > 500)
       {
         digitalWrite(5, 1);
