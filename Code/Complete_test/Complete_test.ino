@@ -36,10 +36,10 @@ DHT_Unified dht(DHTPIN, DHTTYPE);
 #define AIO_SERVER "io.adafruit.com"
 #define AIO_USERNAME "YOUR USER NAME"
 #define AIO_KEY "YOUR ID"
-#define AIO_SERVERPORT 8883 // use 8883 for SSL
-WiFiClientSecure client;    // use WiFiFlientSecure for SSL
-//#define AIO_SERVERPORT  1883
-//WiFiClient client;
+//#define AIO_SERVERPORT 8883 // use 8883 for SSL
+//WiFiClientSecure client;    // use WiFiFlientSecure for SSL
+#define AIO_SERVERPORT  1883
+WiFiClient client;
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
