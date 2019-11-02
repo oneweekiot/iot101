@@ -34,7 +34,7 @@ void loop()
   if (digitalRead(5) == HIGH) //check state for Pin 5, where we have the first button connected
   //code that runs if the statement above is true (a.k.a. the button is pressed)
   {
-    Serial.pintln("Button B pressed");
+    Serial.println("Button B pressed");
     pixels.setPixelColor(0, 0, 75, 0);
     pixels.setPixelColor(1, 0, 0, 75);
     pixels.setPixelColor(2, 75, 0, 0);
@@ -57,7 +57,7 @@ void loop()
 
   if (digitalRead(16) == HIGH)
   {
-    Serial.pintln("Button A pressed");
+    Serial.println("Button A pressed");
     pixels.setPixelColor(0, 75, 0, 0);
     pixels.setPixelColor(1, 0, 75, 0);
     pixels.setPixelColor(2, 0, 0, 75);
