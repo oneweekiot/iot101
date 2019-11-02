@@ -36,10 +36,10 @@ DHT_Unified dht(DHTPIN, DHTTYPE);
 #define AIO_SERVER "io.adafruit.com"
 #define AIO_USERNAME "YOUR USER NAME"
 #define AIO_KEY "YOUR ID"
-#define AIO_SERVERPORT 8883 // use 8883 for SSL
-WiFiClientSecure client;    // use WiFiFlientSecure for SSL
-//#define AIO_SERVERPORT  1883
-//WiFiClient client;
+//#define AIO_SERVERPORT 8883 // use 8883 for SSL
+//WiFiClientSecure client;    // use WiFiFlientSecure for SSL
+#define AIO_SERVERPORT  1883
+WiFiClient client;
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
@@ -49,8 +49,6 @@ Adafruit_MQTT_Publish humidity = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/fee
 Adafruit_MQTT_Publish light = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/light");
 Adafruit_MQTT_Subscribe neopixel = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/feeds/neopixel");
 Adafruit_MQTT_Subscribe slider = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/feeds/slider");
-
-void MQTT_connect();
 
 void setup()
 {
@@ -110,7 +108,9 @@ void loop()
       Serial.println("");
       Serial.print("New Slider value: ");
       Serial.println((char *)slider.lastread);
-      uint16_t sliderval = atoi((char *)slider.lastread); // convert to a number
+      uint16_t sliderval = atoi((char *)slider.lastread); 
+      // convert string read to a number
+      // http://www.cplusplus.com/reference/cstdlib/atoi/
       if (sliderval > 500)
       {
         digitalWrite(5, 1);
@@ -128,7 +128,8 @@ void loop()
       Serial.println("");
       Serial.print("New NeoPixel value: ");
       Serial.print((char *)neopixel.lastread);
-      //convet Hex to RGB
+      //convet Hex to RGB using a RIGHT SHIFT operation
+      //more details at: https://processing.org/reference/rightshift.html
       String hexstring = ((char *)neopixel.lastread);
       long number = (long)strtol(&hexstring[1], NULL, 16);
       int r = number >> 16;
